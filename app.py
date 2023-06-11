@@ -12,8 +12,8 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib
-from flask_wtf import FlaskForm
-from wtforms import FileField, SubmitField
+#from flask_wtf import FlaskForm
+#from wtforms import FileField, SubmitField
 import plotly
 import plotly.express as px
 matplotlib.use('Agg')
