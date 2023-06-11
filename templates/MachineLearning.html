@@ -1,0 +1,143 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href='static/css/MachineLearning.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script src="https://kit.fontawesome.com/6651f0bb66.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Sacramento&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+        crossorigin="anonymous"></script>
+    <title>I_Learn_DataScience</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    </head>
+
+<body class="mainBody">
+
+    <div class="MachineLearning_header">
+        <h1 class="MachineLearning_header_text">Machine Learning</h1>
+    </div>
+    <div class=" column container">
+        <a href="/DataPreprocessing">
+            <div class="previousButton">
+                <span class="previousArrow"></span>
+            </div>
+        </a>
+        <div class="column MainWorkingArea">
+            <main class=" machineLearningOptions page-content">
+                <div class="algorithmBtn lg d_card">
+                    <div class="content">
+                        <h2 class="ContentHeading">Logistic Regression</h2>
+                        <p class="data-content">A statistical model used for binary classification, in which the
+                            log-odds of a certain event occurring is modeled as a
+                            linear combination of independent variables.</p>
+                    </div>
+                </div>
+                <div class="algorithmBtn rf d_card">
+                    <div class="content">
+                        <h2 class="ContentHeading">Random Forest</h2>
+                        <p class="data-content">A set of decision trees and merges them together to make predictions,
+                            with the goal of improving the overall accuracy of
+                            the model.</p>
+                    </div>
+                </div>
+                <div class="algorithmBtn li d_card">
+                    <div class="content">
+                        <h2 class="ContentHeading">Linear Regression</h2>
+                        <p class="data-content">A statistical method used to model the linear relationship between a
+                            dependent variable and one or more independent
+                            variables by fitting a linear equation to the observed data.</p>
+                    </div>
+                </div>
+                <div class="algorithmBtn dt d_card">
+                    <div class="content">
+                        <h2 class="ContentHeading">Decision Tree</h2>
+                        <p class="data-content">Make predictions based on multiple decision points, with each internal
+                            node representing a decision based on certain
+                            features and each leaf node representing a prediction.</p>
+                    </div>
+                </div>
+                <div class="algorithmBtn Nb d_card">
+                    <div class="content">
+                        <h2 class="ContentHeading">Naive Bayes</h2>
+                        <p class="data-content">Based on the Bayesian theorem that assumes independence between
+                            features, which allows for faster and simpler training
+                            and prediction, but may not always accurately reflect the relationships in the data.</p>
+                    </div>
+                </div>
+                <div class="algorithmBtn knn d_card">
+                    <div class="content">
+                        <h2 class="ContentHeading">KNN</h2>
+                        <p class="data-content">k-nearest neighbors (KNN) is a classification algorithm that assigns a label to a data point based on the labels of its
+                        nearest neighbors in the training data.</p>
+                    </div>
+                </div>
+            </main>
+
+        </div>
+        <div class="MachineLearningResultsArea">
+            <div class="resultsDisplayArea">
+                        <div id="plot"></div>
+                        <script>
+                            // Retrieve the Plotly JSON from the Flask route
+                            var plot_json = {{ plot_json | safe }};
+
+                            // Render the Plotly figure
+                            Plotly.newPlot('plot', plot_json.data, plot_json.layout);
+                        </script>
+            </div>
+            <div class="FormDisplayArea">
+                <h2 class="ParametersFormHeading">Set Your Parameters </h2>
+            <form action="" class="ParameterForm" method="POST">
+                <label for="ColumnName">Y Column </label>
+                <br>
+                <SELECT id="YColumnName" class="AllColumnNameDropDownList" name="YColumnName" placeholder="Select Column Name"
+                    required>
+                </SELECT>
+                <br>
+                <label for="TestSize">Test Size </label>
+                <SELECT id="TestSize" class="TestSize" name="TestSize" placeholder="Select Test Size" required>
+                </SELECT>
+                <br>
+                <label for="RandomState">Random State</label>
+                <br>
+                <input type="text" id="RandomState" name="RandomState" required>
+                <br>
+                <div class="F1ScoreAvrgOption">
+                    <label for="F1ScoreAvg">F1 Score Average</label>
+                    <SELECT name="F1ScoreAvg" , placeholder="Select F1 Score Average Option" required>
+                        <OPTION value="macro" name="macro">macro</option>
+                        <OPTION value="weighted" name="weighted">weighted</option>
+                        <OPTION value="micro" name="micro">micro</option>
+                    </SELECT>
+                </div>
+            
+                <br>
+                <br>
+                <div class="additionalElements"></div>
+                <div class="validity"></div>
+                <button class="submit_Btn" type="button" onclick="InputValidation()">Done</button>
+            </form>
+            </div>
+            <p class="clickToBackText"> Click To Back</p>
+        </div>
+        
+        <div class="column NextButton">
+            <span class="NextArrow"></span>
+        </div>
+    </div>
+
+    <script src="static/js/MachineLearning.js"></script>
+</body>
+
+</html>

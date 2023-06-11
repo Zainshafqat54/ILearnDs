@@ -1,0 +1,210 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href='static/css/BuildDeepLearning.css'>
+    <link rel="stylesheet" href='static/css/BuildDeepLearningD3.css'>
+    <title>I_Learn_DataScience</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+</head>
+
+<body class="mainBody">
+
+    <div class="DeepLearningModelBuilding_header">
+        <h1 class="DeepLearningModelBuilding_header_text">Build DeepLearning Models</h1>
+    </div>
+    <div class=" column container">
+        <div class="previousButton">
+            <span class="previousArrow"></span>
+        </div>
+        <div class="column MainWorkingArea">
+            <main class=" DeepLearningOptions page-content">
+                <div class="d_card d_card_ANN">
+                    <div class="content">
+                        <h2 class="ContentHeading">ANN</h2>
+                        <p class="data-content">ANN (Artificial Neural Network): A machine learning model that processes
+                            data through a network of interconnected nodes
+                            called neurons, used for pattern recognition, prediction, and problem-solving.</p>
+                    </div>
+                </div>
+                <div class="d_card d_card_CNN">
+                    <div class="content">
+                        <h2 class="ContentHeading">CNN</h2>
+                        <p class="data-content">CNN (Convolutional Neural Network): A specialized neural network for
+                            image and video processing that uses convolutional
+                            layers to extract features and reduce dimensionality.</p>
+                    </div>
+                </div>
+                <div class="d_card d_card_RNN">
+                    <div class="content">
+                        <h2 class="ContentHeading">RNN</h2>
+                        <p class="data-content">RNN (Recurrent Neural Network): A type of neural network designed for
+                            sequential data and time-series analysis that
+                            utilizes recurrent connections and feedback loops to process information.</p>
+                    </div>
+                </div>
+            </main>
+
+        </div>
+        <div class="DeepLearningFormFillingArea">
+            <div class="resultsDisplayArea">
+                <div class="FormFillingArea">
+
+                    <form class="FormtoDrawStructure ANN_Form" method="post">
+                        <p>ANN</p>
+                        <label for="ANN-input-neurons">Number of Input Neurons:</label>
+                        <input type="range" class="ANN-input-neurons" name="input_neurons" min="1" max="10" value="5"
+                            step="1">
+                        <span class="ANN-input-neurons-value">5</span>
+
+                        <br>
+
+                        <label for="hidden-layers">Number of Hidden Layers:</label>
+                        <input type="range" class="ANN-hidden-layers" name="hidden_layers" min="0" max="5" value="2"
+                            step="1">
+                        <span class="ANN-hidden-layers-value">2</span>
+
+                        <br>
+
+                        <label for="neurons-per-layer">Neurons per Hidden Layer:</label>
+                        <input type="range" class="ANN-neurons-per-layer" name="neurons_per_layer" min="1" max="10"
+                            value="3" step="1">
+                        <span class="ANN-neurons-per-layer-value">3</span>
+
+                        <br>
+
+                        <label for="output-neurons">Number of Output Neurons:</label>
+                        <input type="range" class="ANN-output-neurons" name="output_neurons" min="1" max="10" value="1"
+                            step="1">
+                        <span class="ANN-output-neurons-value">1</span>
+
+                        <br>
+
+                        <label for="biasness">Do you want to add biasness?</label>
+                        <div class="switcher-wrapper">
+                            <input type="checkbox" class="switcher" id="biasness" name="biasness">
+                            <label for="biasness"></label>
+                        </div>
+
+                        <br>
+                        <br>
+                        <input class="DrawFigureButton" type="submit" value="Draw Figure">
+                    </form>
+
+
+                    <form class="FormtoDrawStructure CNN_Form" method="post">
+                        <p>CNN</p>
+                        <label for="CNN-Conv-Layers">Number of Convolution Layers:</label>
+                        <input type="range" class="CNN-Conv-Layers" name="Conv-Layers" min="1" max="3" value="2"
+                            step="1">
+                        <span class="CNN-Conv-Layers-value">2</span>
+
+                        <br>
+
+                        <label for="hidden-layers">Number of Hidden Layers:</label>
+                        <input type="range" class="CNN-hidden-layers" name="hidden_layers" min="0" max="3" value="2"
+                            step="1">
+                        <span class="CNN-hidden-layers-value">2</span>
+
+                        <br>
+
+                        <label for="neurons-per-layer">Neurons per Hidden Layer:</label>
+                        <input type="range" class="CNN-neurons-per-layer" name="neurons_per_layer" min="1" max="10"
+                            value="3" step="1">
+                        <span class="CNN-neurons-per-layer-value">3</span>
+
+                        <br>
+
+                        <label for="output-neurons">Number of Output Neurons:</label>
+                        <input type="range" class="CNN-output-neurons" name="output_neurons" min="1" max="10" value="1"
+                            step="1">
+                        <span class="CNN-output-neurons-value">1</span>
+
+                        <br>
+
+                        <label for="biasness">Do you want to add biasness?</label>
+                        <div class="switcher-wrapper">
+                            <input type="checkbox" class="switcher" id="biasness" name="biasness">
+                            <label for="biasness"></label>
+                        </div>
+
+                        <br>
+                        <br>
+                        <input class="DrawFigureButton" type="submit" value="Draw Figure">
+                    </form>
+
+
+                    <form class="FormtoDrawStructure RNN_Form" method="post">
+                        <p>RNN</p>
+                        <label for="input-neurons">Number of Input Neurons:</label>
+                        <input type="range" class="RNN-input-neurons" name="input_neurons" min="1" max="10" value="5"
+                            step="1">
+                        <span class="RNN-input-neurons-value">5</span>
+
+                        <br>
+
+                        <label for="hidden-layers">Number of Hidden Layers:</label>
+                        <input type="range" class="RNN-hidden-layers" name="hidden_layers" min="0" max="5" value="2"
+                            step="1">
+                        <span class="RNN-hidden-layers-value">2</span>
+
+                        <br>
+
+                        <label for="neurons-per-layer">Neurons per Hidden Layer:</label>
+                        <input type="range" class="RNN-neurons-per-layer" name="neurons_per_layer" min="1" max="10"
+                            value="3" step="1">
+                        <span class="RNN-neurons-per-layer-value">3</span>
+
+                        <br>
+
+                        <label for="output-neurons">Number of Output Neurons:</label>
+                        <input type="range" class="RNN-output-neurons" name="output_neurons" min="1" max="10" value="1"
+                            step="1">
+                        <span class="RNN-output-neurons-value">1</span>
+
+                        <br>
+
+                        <label for="biasness">Do you want to add biasness?</label>
+                        <div class="switcher-wrapper">
+                            <input type="checkbox" class="switcher" id="biasness" name="biasness">
+                            <label for="biasness"></label>
+                        </div>
+
+                        <br>
+                        <br>
+                        <input class="DrawFigureButton" type="submit" value="Draw Figure">
+                    </form>
+
+
+                </div>
+
+                <div id="DisplayStructure" class="DisplayStructure">
+
+                    <div class="neural-network-Structure  svg-container" id="neural-network-Structure"></div>
+
+                    <button class="RegenerateStructure"><i class="fa-solid fa-repeat"></i> Regenerate</button>
+                    <a href='' class="download-btn">
+                        <i class="fas fa-download"></i> Download
+                    </a>
+
+                </div>
+            </div>
+            <p class="clickToBackText"> Click To Back</p>
+        </div>
+        <div class="column NextButton">
+            <span class="NextArrow"></span>
+        </div>
+    </div>
+
+    <script src="static/js/BuildDeepLearning.js"></script>
+    <script src="static/js/BuildDeepLearningD3.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,335 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href='static/css/DataPreprocessing.css'>
+    <script src="https://kit.fontawesome.com/6651f0bb66.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Sacramento&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+        crossorigin="anonymous"></script>
+    <title>I_Learn_DataScience</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    </head>
+
+<body class="mainBody">
+    <div class=" column left-side">
+        
+        <button class="function_button ReplaceNullVal">Replace Null Values</button>
+            <ul class="toggleOptions RelaceNullValueoptions">
+                <a href="ReplaceNullValWithUpperOne"><button class="function_button btn_Option">Upper Value</button></a>
+                <a href="ReplaceNullValWithLowerOne"><button class="function_button btn_Option">Lower Value</button></a>
+                <a href="ReplaceNullValWithMean"><button class="function_button btn_Option">Mean Value</button></a>
+                <a href="ReplaceNullValWithMax"><button class="function_button btn_Option">Max Value</button></a>
+                <a href="ReplaceNullValWithMin"><button class="function_button btn_Option">Min Value</button></a>
+            </ul>
+
+        <button class="function_button dropNullval">Dropping Null Values</button>
+            <form  action="{{url_for('DropNullVal')}}" class="DropNullValueOptions toggleOptions parameterForm"  method="POST">
+                <label for="axis">Axis</label>
+                <br>
+                <SELECT name="axis" placeholder="Select Row or Column">
+                    <OPTION value="rows" name="row">Row</option>
+                    <OPTION value="columns" name="column">Column</option>
+                </SELECT>
+                <br>
+                <label for="Condition">Condition To Drop</label>
+                <SELECT name="conditionToDrop", placeholder="Condition Rows or Column to drop ">
+                    <OPTION value="all" name="all">all</option>
+                    <OPTION value="any" name="any">any</option>
+                </SELECT>
+                <br>
+                <input type="submit" value="Done" />
+            </form>
+        <button class="function_button removeAmbiguity">Remove Ambiguity</button>
+            <ul class="removeAmbiguityOptions toggleOptions">
+
+                <button class="function_button btn_Option RemoveAmbiguityUrls_Emojis">Urls, Emojy's</button>
+
+                <form action="{{url_for('RemoveAmbiguityURLEmoji')}}" class="removeAmbiguityAxisOptionUrl_Emoji parameterForm" method="POST">
+                    <label for="ColumnName">Select Column</label>
+                    <br>
+                    <SELECT class="AllColumnNameDropDownList" name="RemoveAmbiguityUrls_EmojisColumnName" placeholder="Select Column Name" multiple required>
+                        <OPTION value="ALLCOLUMNS" name="ALLCOLUMNS">All Columns</option>
+                    </SELECT>
+                    
+                    <input type="submit" value="Done" />
+                </form>
+
+                <button class="function_button btn_Option RemoveAmbiguityHTMLTag">Html Tags</button>
+
+                <form action="{{url_for('RemoveAmbiguityHTMLTags')}}" class="removeAmbiguityAxisOptionHTMLTag parameterForm" method="POST">
+                    <label for="ColumnName">Select Column </label>
+                    <br>
+                    <SELECT class="AllColumnNameDropDownList" name="RemoveAmbiguityHTMLTagColumnName" placeholder="Select Column Name" multiple required>
+                        <OPTION value="ALLCOLUMNS" name="ALLCOLUMNS">All Columns</option>
+                    </SELECT>
+                    <input type="submit" value="Done" />
+                </form>
+
+                <a href="RemoveAmbiguityColumnSpace"><button class="function_button btn_Option RemoveAmbiguityColumnSpace">Column Space</button></a>
+                
+            </ul>
+
+        <button class="function_button dropDuplicates">Drop Duplicates</button>
+                <form action="{{url_for('DropDuplicates')}}" class="dropDuplicateOptionColumnName parameterForm"
+                    method="POST">
+                    <label for="ColumnName">Select Column </label>
+                    <br>
+                    <SELECT id ="DropDuplicateColumns" class="AllColumnNameDropDownList" name="DropDuplicateColumns" placeholder="Select Column Name" multiple required>
+                        <OPTION value="ALLCOLUMNS" name="ALLCOLUMNS">All Columns</option>
+                    </SELECT>
+                    <br>
+                    <label for="keep">Keep</label>
+                    <SELECT name="Keep" , placeholder="Condition Rows or Column to drop ">
+                        <OPTION value="first" name="first">first</option>
+                        <OPTION value="last" name="last">last</option>
+                        <OPTION value="None" name="None">None</option>
+                    </SELECT>
+                    <br>
+                    <input class="DropDuplicateColumnsDone" type="submit" value="Done" />
+                </form>
+
+
+        <button class="function_button ReplaceValue">Replace</button>
+            <ul class="replaceColOrRowValOptions toggleOptions">
+            
+                <button class="function_button btn_Option replaceColVal">Column Name</button>
+            
+                <form action="{{url_for('replaceColVal')}}" class="replaceColValOptions parameterForm"
+                    method="POST">
+                    <label for="ColumnName">Select Column To Replace</label>
+                    <br>
+                    <SELECT class="AllColumnNameDropDownList" name="ColumnNameToReplace"
+                        placeholder="Select Column Name" required>
+                    </SELECT>
+
+                    <label for="ReplaceWith">Replace With</label>
+                    <br>
+                    <input type="text" name="ReplaceWith" placeholder="Replace With" required>
+            
+                    <input type="submit" value="Done" />
+                </form>
+            
+                <button class="function_button btn_Option replaceRowVal">Row Value</button>
+            
+                <form  id="replaceRowValOptions"action="{{url_for('replaceRowVal')}}" class="replaceRowValOptions parameterForm"
+                    method="POST">
+                    <label for="ColumnName">Select Column Name</label>
+                    <br>
+                    <SELECT class="AllColumnNameDropDownList" name="ColumnNameOfRowVal" placeholder="Select Column Name" required>
+                    </SELECT>
+                    <label for="RowIndex">Enter Row Index</label>
+                    <br>
+                    <input type="text" id="RowIndex" name="RowIndex" required>
+
+                    <label for="RowValue">Enter Value</label>
+                    <br>
+                    <input id="ReplaceWith" type="text" name="ReplaceWith" placeholder="Replace With" required>
+                        <div class="validity replaceRowValValidty"></div>
+                    <button type="button" onclick="RowIndexValidation()">Done</button>
+                    <!-- <input type="submit" value="Done" /> -->
+                </form>
+            
+            </ul>
+        
+        <button class="function_button droprowOrColumn">Drop</button>
+        <ul class="droprowOrColumnOptions toggleOptions">
+        
+            <button class="function_button btn_Option dropColumnOption">Column</button>
+        
+            <form action="{{url_for('dropColumn')}}" class="dropColumnOptionForm parameterForm"
+                method="POST">
+                <label for="ColumnName">Select Columns</label>
+                <br>
+                <SELECT class="AllColumnNameDropDownList" name="dropColumnName"
+                    placeholder="Select Column Name" multiple required>
+                </SELECT>
+        
+                <input type="submit" value="Done" />
+            </form>
+        
+            <button class="function_button btn_Option dropRow">Row</button>
+            
+            <form id="dropRowForm" action="{{url_for('dropRow')}}" class="dropRowOptions parameterForm"
+                method="POST">
+                <label for="range">Enter Range</label>
+                <br>
+                <label for="rangeStart">From:</label>
+                <input type="text" id="RangeStart" name="RangeStart" placeholder="0-100" required>           
+                <br>
+                <div class="validityRowRangeStartValValidity"></div>
+                <label for="rangeStart">To:</label>
+                <input type="text" id="RangeEnd" name="RangeEnd" required>
+                <br>
+                <div class="validity RowRangeEndValValidity"></div>
+                <button type="button" onclick="RangeValidation()">Done</button>
+                <!-- <input type="submit" value="Done" /> -->
+            </form>
+        
+        </ul>
+
+        <button class="function_button  featureSelectionChi_SQROption">Feature Selection</button>
+        
+            <form id="featureSelectionChi_SQROptionForm" action="{{url_for('featureSelectionViaChiSquare')}}" class="featureSelectionChi_SQROptionForm parameterForm" method="POST">
+                <label for="ColumnName">Select Column</label>
+                <br>
+                <SELECT id="AllColumnNameDropDownListForfeatureSelectionChiSquare"  size="4" class="AllColumnNameDropDownList" name="dropColumnName" placeholder="Select Column Name" required>
+                </SELECT>
+                <label for="NumbrOfColRqrd">Number Of Columns</label>
+                <input type="text" id="NumberOfColRqrdForChiSqr" name="NumberOfColRqrdForChiSqr" required>
+                <br>
+                <div class=" validity featureSelectionViaChiSqrNumberOfColValidity"></div>
+                <button data-bs-target="#FeatureSelectionRequirements" data-bs-toggle="modal" type="button" >Done</button>
+                <!-- <input type="submit" value="Done" /> -->
+            </form>
+        
+        <!-- <a href="Normalization"><button class="function_button  Normalization">Normalization </button></a> -->
+        <button data-bs-target="#NormalizationRequirements" data-bs-toggle="modal" class="function_button  Normalization">Normalize</button>
+        
+        
+        <!-- Models -->
+
+
+        <div class="modal fade" id="NormalizationRequirements" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">More information</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="requirementParagraph">Normalization will only be applied on Numerical Columns</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <a href="Normalization"><button type="button" class="btn btn-light">Understood</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="modal fade" id="FeatureSelectionRequirements" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">More information</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="requirementParagraph">DataSet Must not have any Null Values,In case of Null Values ,it will automatically drop the Rows having Null Values</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" onclick="FeatureSelectionValidation()" class="btn btn-light" data-bs-dismiss="modal">Understood</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+
+
+
+
+    <div class=" column right-side">
+        <div class="Resulting_area_header">
+            <h1>Data PreProcessing</h1>
+        </div>
+        
+        <div class="Resulting_area_display After_button_click">
+            <div class="toolBar">
+            <div class="button-bar">
+                        <button class="button">
+                            <a href="/MicroservicesModulesOptions">
+                                <input type="radio" name="radio-flip" value="button1" id="button1" class='radio-flip'>
+                                <div class="button__face button__face--front">
+                                    <span><i class="fa-solid fa-house"></i></span>
+                                </div>
+                                <div class="button__face button__face--back">
+                                    <span><i class="fa-solid fa-house"></i></span>
+                                </div>
+                                <p>Microservices</p>
+                            </a>
+                        </button>
+                        <button class="button">
+                            <a href="#/">
+                                <input type="radio" name="radio-flip" value="button2" id="button2" class='radio-flip'>
+                                <div class="button__face button__face--front">
+                                    <span><i class="fa-solid fa-trash-can-arrow-up"></i></span>
+                                </div>
+                                <div class="button__face button__face--back">
+                                    <span><i class="fa-solid fa-trash-can-arrow-up"></i></span>
+                                </div>
+                                <p>Reset</p>
+                            </a>
+                        </button>
+                        <button class="button">
+                            <a href="/download">
+                                <input type="radio" name="radio-flip" value="button3" id="button3" class='radio-flip'>
+                                <div class="button__face button__face--front">
+                                    <span><i class="fa-solid fa-file-arrow-down"></i></span>
+                                </div>
+                                <div class="button__face button__face--back">
+                                    <span><i class="fa-solid fa-file-arrow-down"></i></span>
+                                </div>
+                                <p>Download</p>
+                            </a>
+                        </button>                       
+                        <button onclick="DisplayFilterDropDownOptions()" class="dropbtn button">
+                            <a href="#/">
+                                <input type="radio" name="radio-flip" value="button4" id="button4" class='radio-flip'>
+                                <div class="button__face button__face--front">
+                                    <span><i class="fa-sharp fa-solid fa-filter"></i></span>
+                                </div>
+                                <div class="button__face button__face--back">
+                                    <span><i class="fa-sharp fa-solid fa-filter"></i></span>
+                                </div>
+                                <p>Filter</p>
+                            </a>   
+                        </button>
+                        <div id="FilterDropdown" class="dropdown-content">
+                            <a href="/DisplayTop10Rows">Top 10</a>
+                            <a href="/DisplayLast10Rows">Last 10</a>
+                            <a href="/DisplayRand10Rows">Random</a>
+                            <a href="/DisplayFullDataset">All</a>
+                        </div>
+                        <button class="button">
+                            <a href="/MachineLearning">
+                                <input type="radio" name="radio-flip" value="button5" id="button5" class='radio-flip'>
+                                <div class="button__face button__face--front">
+                                    <span><i class="fa-solid fa-circle-right"></i></span>
+                                </div>
+                                <div class="button__face button__face--back">
+                                    <span><i class="fa-solid fa-circle-right"></i></span>
+                                </div>
+                                <p>Next Module</p>
+                            </a>
+                        </button>
+
+                    </div>
+                </div>
+            <div class ="DataFrame">
+                    {% for table in tables %}
+                    {{ table|safe }}
+                    {% endfor %}
+            </div>            
+            
+        </div>
+    </div>
+    <script src="static/js/DataPreprocessing.js"></script>
+</body>
+
+</html>

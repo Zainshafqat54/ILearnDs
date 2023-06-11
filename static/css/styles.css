@@ -1,0 +1,236 @@
+.top_div
+{
+    background-color: aliceblue;
+    width: 100vh;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.first-h1
+{
+    padding:8% 10%;
+    font-family: 'Merriweather', serif;
+    font-size: 3.5rem;
+    font-weight: bold;
+}
+
+.first-h2 {
+    padding:8% 10%;
+    font-family: 'Merriweather', serif;
+    font-size: 3rem;
+    width: 90%;
+    padding-bottom: 3%;
+}
+
+.frontImg
+{
+    margin-top: 40px;
+    width:100%;
+    height:100%;
+}
+.StartBtn
+{
+    padding-left: 70px;
+    padding-right: 70px;
+    margin-left: 30%;
+    width: 70%;
+    height: 70px;
+}
+.Proceed_btn
+{
+    padding-left: 70px;
+    padding-right: 70px;
+    margin-top: 2%;
+    margin-left: 35%;
+    text-decoration: none;
+    font-family: Arial;
+    font-size: 30px;
+    display: inline-block;
+    border-top: 3px solid #beccc6;
+    border-left: 3px solid #beccc6;
+    border-bottom: 3px solid #596385;
+    border-right: 3px solid #596385;
+    border-radius: 10px;
+    padding: 10px 40px;
+    color: #1e4735;
+    text-shadow: -1px -1px 0px #000;
+    background: linear-gradient(to bottom, #596385, #beccc6);
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, .5), inset 0px 5px 5px rgba(255, 255, 255, .7), inset 0px -5px 5px rgba(0, 0, 0, .2);
+}
+
+.pages {
+    display: flex; 
+     width: 300%;
+     height: 100%;
+     box-sizing: border-box; 
+}
+.page {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    transition: all 0.7s;
+}
+
+.file_upload-area
+{
+    margin-top: 1%;
+    margin-left:8%;
+    width: 80%;
+    height: 90%;
+    background-color: #e9ecef;
+    border-radius: 10%;
+    position:relative;
+    box-shadow: 10px 10px 5px lightblue;
+}
+
+.file_upload-area .wrapper {
+    position: absolute;
+    margin-top:5%;
+    margin-left: 5%;
+    width: 90%;
+    height: 90%;
+    background-color: whitesmoke;
+    border: 3px dashed #49505799;
+    border-radius:15%;
+}
+
+.file_upload-area .wrapper .file_upload_icon_area
+{
+    position: absolute;
+    margin:15% 10%;
+    width: 80%;
+    height: 60%;
+    background-color: #8b9197;
+    opacity: 0.4;
+    border-radius: 10%;
+}
+
+.wrapper .file-upload {
+    height: 200px;
+    width: 200px;
+    margin:10% 28%;
+    border-radius: 100px;
+    position:absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 4px solid #FFFFFF;
+    overflow: hidden;
+    background-image: linear-gradient(to bottom, #2590EB 50%, #FFFFFF 50%);
+    background-size: 100% 200%;
+    transition: all 1s;
+    color: #FFFFFF;
+    font-size: 100px;
+}
+
+.wrapper .file-upload input[type=file] {
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.wrapper .file-upload:hover {
+    background-position: 0 -100%;
+    color: #2590EB;
+}
+
+.drag_span
+{
+    width: 80%;
+    padding-top:2%;
+    position: absolute;
+    margin: 50% 18%;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+}
+
+.uploadPageImg
+{
+        padding-left: 10%;
+}
+.file-name {
+    width: 100%;
+    padding-top: 70%;
+    text-align: middle;
+    left: 0;
+    right: 0;
+    font-weight: bold;
+    font-size: 15pt;
+    margin: auto;
+    text-align: center;
+}
+.microServices_Area {
+    margin:5% 0%;
+    /* margin-bottom: 10%; */
+    width: 100%;
+    height: 100%;
+    background-color: #e9ecef;
+    border-radius: 15%;
+    position: fixed;
+    box-shadow: 10px 10px 5px lightblue;
+}
+.microServices_Area .row
+{
+    position: relative;
+}
+.microServices_Area .row .col-3
+{
+    margin-left: 6%;
+    margin-top: 1%;
+}
+
+.module_box
+{
+    padding: 4% 8%;
+    margin: 3%;
+    margin-bottom: 0%; 
+    position: relative;
+    background-color: #b9dbe6;
+    transform: perspective(800px) translate3d(0px, 0px, -250px) rotateX(20deg) scale(0.8, 0.8);
+    border-radius: 20px;
+    border: 5px solid #e6e6e6;
+    box-shadow: 0 70px 40px -20px rgba(0, 0, 0, 0.2);
+    transition: 0.4s ease-in-out transform;
+}
+.microServices_Area .row .col-3 h2
+{
+    position: relative;
+    text-align: center;
+    padding-right: 4%;
+    margin-bottom: 0%;
+    margin-top: 0%;
+    /* margin: 3%; */
+}
+.microServices_Area .row .col-3 img
+{
+    margin: 0%;
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+.scale {
+    background-color: #b9dbe6;
+}
+.box-transition {
+    transition: all .5s ease-in-out;
+}
+.scale:hover {
+    transform: scale(1.2,1.2);
+}
+
+.custom-popover {
+    --bs-popover-max-width: 200px;
+    --bs-popover-border-color: var(--bs-primary);
+    --bs-popover-header-bg: var(--bs-primary);
+    --bs-popover-header-color: var(--bs-white);
+    --bs-popover-body-padding-x: 1rem;
+    --bs-popover-body-padding-y: .5rem;
+}
